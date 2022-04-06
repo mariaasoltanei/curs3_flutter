@@ -1,0 +1,28 @@
+on:
+  push:
+
+jobs:
+  check-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get code
+        uses: actions/checkout@v2
+
+
+      - name: install flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: update packages
+        run: flutter pub get
+
+      - name: check my code
+        run: flutter format ./lib -l 120 --set-exit-if-chaged
+
+      - name: run dart analysis
+        run: flutter analyze
+      #download code
+    #install flutter
+    #flutter pub get
+    #run checks
