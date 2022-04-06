@@ -18,7 +18,7 @@ jobs:
         run: flutter pub get
 
       - name: check my code
-        run: flutter format ./lib -l 120 --set-exit-if-chaged
+        run: flutter format ./lib -l 120 --set-exit-if-changed
 
       - name: run dart analysis
         run: flutter analyze
